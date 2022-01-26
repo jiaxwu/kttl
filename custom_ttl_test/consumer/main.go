@@ -14,9 +14,6 @@ import (
 
 func main() {
 	consumerConfig := sarama.NewConfig()
-	consumerConfig.Consumer.Return.Errors = false
-	consumerConfig.Consumer.Offsets.Initial = sarama.OffsetNewest
-	consumerConfig.Consumer.Interceptors = append(consumerConfig.Consumer.Interceptors)
 	consumerGroup, err := sarama.NewConsumerGroup(custom_ttl_test.Addrs, custom_ttl_test.Group, consumerConfig)
 	if err != nil {
 		log.Fatal(err)
